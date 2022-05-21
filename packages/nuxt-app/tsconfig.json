@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
     "target": "ES2018",
     "module": "ESNext",

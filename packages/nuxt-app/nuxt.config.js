@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-app',
+    title: 'Rocket Protocol',
     htmlAttrs: {
       lang: 'en',
     },

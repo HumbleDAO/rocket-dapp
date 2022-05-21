@@ -37,6 +37,7 @@
     "abdk-libraries-solidity": "2.4.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-truffle": "^0.3.1",
     "prettier": "^2.5.1",
     "truffle": "^5.4.9",
     "truffle-contract-size": "^2.0.1",
