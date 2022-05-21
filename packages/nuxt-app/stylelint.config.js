@@ -8,5 +8,10 @@ module.exports = {
   ],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
-  rules: {},
+  rules: {
+    'color-function-notation': 'off',
+    'rule-empty-line-before': 'off',
+    'color-hex-length': false,
+    'comment-empty-line-before': false,
+  },
 }

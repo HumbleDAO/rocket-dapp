@@ -12,9 +12,9 @@
     "deploy-development": "truffle migrate --network development"
   },
   "dependencies": {
-    "@chainlink/contracts": "^0.1.7",
-    "@openzeppelin/contracts": "^3.4.1",
-    "@openzeppelin/contracts-upgradeable": "^3.4.1",
+    "@chainlink/contracts": "^0.4.0",
+    "@openzeppelin/contracts": "^4.6.0",
+    "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@sushiswap/sdk": "^5.0.0-canary.87",
     "eip-712": "^0.4.3",
     "lodash": "^4.17.21",
