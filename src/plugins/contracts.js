@@ -1,15 +1,15 @@
 import {
-  abi as MIGRATIONS_ABI,
-  networks as MIGRATIONS_NETWORK,
-} from '../../build/contracts/Migrations.json'
+  abi as ROCKET_FACTORY_ABI,
+  networks as ROCKET_FACTORY_NETWORK,
+} from '../../build/contracts/RocketFactory.json'
 
 let _contracts
 export default function (
-  { $web3, $web3Socket, $config: { MIGRATIONS_CONTRACT } },
+  { $web3, $web3Socket, $config: { ROCKET_FACTORY_CONTRACT } },
   inject
 ) {
   _contracts = _setupContracts($web3, $web3Socket, {
-    MIGRATIONS_CONTRACT,
+    ROCKET_FACTORY_CONTRACT,
   })
   inject('contracts', _contracts)
 }
@@ -19,31 +19,31 @@ export const contracts = _contracts
 function _setupContracts(
   $web3,
   $web3Socket,
-  { MIGRATIONS_CONTRACT, NETWORK_ID }
+  { ROCKET_FACTORY_CONTRACT, NETWORK_ID }
 ) {
   NETWORK_ID = String(NETWORK_ID)
   console.log('NETWORK_ID: ', NETWORK_ID)
-  const migrationsContractAddress = MIGRATIONS_NETWORK[NETWORK_ID]
-    ? MIGRATIONS_NETWORK[NETWORK_ID].address
-    : MIGRATIONS_CONTRACT
+  const rocketFactoryAddress = ROCKET_FACTORY_NETWORK[NETWORK_ID]
+    ? ROCKET_FACTORY_NETWORK[NETWORK_ID].address
+    : ROCKET_FACTORY_CONTRACT
 
   // Instantiate https providers
-  const Migrations = migrationsContractAddress
-    ? new $web3.eth.Contract(MIGRATIONS_ABI, migrationsContractAddress)
+  const RocketFactory = rocketFactoryAddress
+    ? new $web3.eth.Contract(ROCKET_FACTORY_ABI, rocketFactoryAddress)
     : null
 
   // Instantiate wss providers
-  const MigrationsSocket = migrationsContractAddress
-    ? new $web3Socket.eth.Contract(MIGRATIONS_ABI, migrationsContractAddress)
+  const RocketFactorySocket = rocketFactoryAddress
+    ? new $web3Socket.eth.Contract(ROCKET_FACTORY_ABI, rocketFactoryAddress)
     : null
 
   console.log({
-    Migrations,
-    MigrationsSocket,
+    RocketFactory,
+    RocketFactorySocket,
   })
 
   return {
-    Migrations,
-    MigrationsSocket,
+    RocketFactory,
+    RocketFactorySocket,
   }
 }

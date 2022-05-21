@@ -1,6 +1,5 @@
 import { ActionTree, MutationTree } from 'vuex'
 import ENS, { getEnsAddress } from '@ensdomains/ensjs'
-// import VuexPersistence from 'vuex-persist'
 import detectProvider from '@metamask/detect-provider'
 
 export const INITIAL_STATE = {
