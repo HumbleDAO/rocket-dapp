@@ -162,6 +162,7 @@ contract RocketFactory is KeeperCompatibleInterface {
     )
         external
         view
+        override
         returns (
             bool upkeepNeeded,
             bytes memory /* performData */
@@ -198,7 +199,7 @@ contract RocketFactory is KeeperCompatibleInterface {
 
     function performUpkeep(
         bytes calldata /* performData */
-    ) external {
+    ) external override {
         // We highly recommend re-validating the upkeep in the performUpkeep function
         executeAll();
     }
