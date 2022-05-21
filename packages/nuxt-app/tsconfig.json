@@ -17,15 +17,7 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": [
-      "@nuxt/types",
-      "@nuxtjs/axios",
-      "@types/node",
-      "@types/chai",
-      "@types/mocha",
-      "@types/lodash",
-      "@walletconnect/types"
-    ]
+    "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"]
   },
   "exclude": [
     "node_modules",
