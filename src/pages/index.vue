@@ -43,13 +43,16 @@
         <p><span>vvv</span> Get Started <span>vvv</span></p>
       </div>
       <create-transaction />
+      <total-scheduled-transactions />
     </main>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapState } from 'vuex'
+import TotalScheduledTransactions from '../components/TotalScheduledTransactions.vue'
 export default {
+  components: { TotalScheduledTransactions },
   name: 'App',
   computed: {
     ...mapState(['selectedAccount', 'chainId']),

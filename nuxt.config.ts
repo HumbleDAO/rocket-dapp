@@ -10,7 +10,7 @@ if (DEPLOYED_NET_ENV === 'mainnet') {
 
 if (DEPLOYED_NET_ENV === 'testnet') {
   NETWORK_ID = '80001'
-  ROCKET_FACTORY_CONTRACT = ''
+  ROCKET_FACTORY_CONTRACT = '0x90647e2337708BacDF0ECa1747feB6A0a9Dc7C98'
 }
 
 if (DEPLOYED_NET_ENV === 'local') {
@@ -96,8 +96,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/contracts.js', client: true },
     { src: '~/plugins/web3.js', client: true },
+    { src: '~/plugins/contracts.js', client: true },
     { src: '~/plugins/web3Modal.js', client: true },
   ],
 
