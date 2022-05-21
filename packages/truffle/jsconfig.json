@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["/*"],
+      "@/*": ["/*"],
+      "~~/*": ["/*"],
+      "@@/*": ["/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist",
+    "coverage",
+    "build",
+    "cache",
+    "artifacts",
+    ".gitbook",
+    ".circleci"
+  ]
+}

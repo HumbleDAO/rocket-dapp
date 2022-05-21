@@ -1,0 +1,38 @@
+{
+  "name": "@humbledao/rocket-dapp",
+  "version": "1.0.0",
+  "keywords": [
+    "ethereum",
+    "vue",
+    "nuxt",
+    "nuxt2",
+    "truffle",
+    "workspaces",
+    "yarn"
+  ],
+  "private": true,
+  "scripts": {
+    "postinstall": "husky install",
+    "nuxt-app:build": "yarn workspace @humbledao/nuxt-app build --max-old-space-size=12288",
+    "nuxt-app:dev": "yarn workspace @humbledao/nuxt-app dev",
+    "nuxt-app:start": "yarn workspace @humbledao/nuxt-app start",
+    "nuxt-app:generate": "yarn workspace @humbledao/nuxt-app generate",
+    "nuxt-app:test": "yarn workspace @humbledao/nuxt-app test",
+    "nuxt-app:prettier": "yarn workspace @humbledao/nuxt-app lint:prettier",
+    "build": "yarn workspace @humbledao/nuxt-app build --max-old-space-size=12288",
+    "dev": "yarn workspace @humbledao/nuxt-app dev",
+    "lint": "yarn workspace @humbledao/nuxt-app lint && yarn workspace @humbledao/truffle lint"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/truffle",
+      "**/truffle/**"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.2"
+  }
+}
