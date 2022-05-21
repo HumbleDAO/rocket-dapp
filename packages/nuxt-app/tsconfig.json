@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "target": "ES2018",
     "module": "ESNext",

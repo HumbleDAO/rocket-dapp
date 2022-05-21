@@ -19,7 +19,7 @@
     "nuxt-app:generate": "yarn workspace @humbledao/nuxt-app generate",
     "nuxt-app:test": "yarn workspace @humbledao/nuxt-app test",
     "nuxt-app:prettier": "yarn workspace @humbledao/nuxt-app lint:prettier",
-    "build": "yarn workspace @humbledao/nuxt-app build --max-old-space-size=12288",
+    "build": "yarn workspace @humbledao/truffle build --max-old-space-size=12288",
     "dev": "yarn workspace @humbledao/nuxt-app dev",
     "lint": "yarn workspace @humbledao/nuxt-app lint && yarn workspace @humbledao/truffle lint"
   },
