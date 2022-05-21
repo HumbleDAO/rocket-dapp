@@ -1,7 +1,7 @@
 import {
   abi as MIGRATIONS_ABI,
   networks as MIGRATIONS_NETWORK,
-} from '~/../../../truffle/build/contracts/Migrations.json'
+} from '../../build/contracts/Migrations.json'
 
 let _contracts
 export default function (

@@ -48,7 +48,7 @@
             <select
               id="ERC20Token"
               name="ERC20Token"
-              class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent"
+              class="py-0 pr-7 pl-2 h-full bg-transparent border-transparent focus:border-indigo-500 focus:ring-indigo-500"
             >
               <option>Polygon</option>
               <option>Ethereum</option>
@@ -97,6 +97,8 @@
     </div>
   </form>
 </template>
+
+<script></script>
 
 <style>
 .ide-container {

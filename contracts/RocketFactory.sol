@@ -143,11 +143,7 @@ contract RocketFactory is KeeperCompatibleInterface {
         return transactionsList;
     }
 
-    function getAllTransactionsLength()
-        public
-        view
-        returns (Transaction[] memory)
-    {
+    function getAllTransactionsLength() public view returns (uint256) {
         return transactionsList.length;
     }
 
@@ -166,7 +162,6 @@ contract RocketFactory is KeeperCompatibleInterface {
     )
         external
         view
-        override
         returns (
             bool upkeepNeeded,
             bytes memory /* performData */
@@ -203,7 +198,7 @@ contract RocketFactory is KeeperCompatibleInterface {
 
     function performUpkeep(
         bytes calldata /* performData */
-    ) external override {
+    ) external {
         // We highly recommend re-validating the upkeep in the performUpkeep function
         executeAll();
     }

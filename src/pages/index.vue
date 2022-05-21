@@ -3,8 +3,8 @@
     <nav>
       <button
         type="button"
+        class="py-2 px-4 text-sm font-medium text-white bg-black bg-opacity-25 hover:bg-opacity-90 rounded-md focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:outline-none"
         @click="openModal"
-        class="rounded-md bg-black bg-opacity-25 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
         Connect your Wallet
       </button>
@@ -50,7 +50,7 @@
         </p>
         <p><span>vvv</span> Get Started <span>vvv</span></p>
       </div>
-      <CreateATransaction />
+      <create-transaction />
     </main>
   </div>
 </template>

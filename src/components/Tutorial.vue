@@ -1,13 +1,13 @@
 <!-- Please remove this file from your project -->
 <template>
   <div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"
+    class="flex relative justify-center sm:items-center sm:pt-0 min-h-screen bg-gray-100 items-top"
   >
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div class="sm:px-6 lg:px-8 mx-auto max-w-4xl">
       <a
         class="flex justify-center pt-8 sm:pt-0"
         href="https://nuxtjs.org"
@@ -50,8 +50,8 @@
           />
         </svg>
       </a>
-      <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6">
-        <h2 class="text-2xl leading-7 font-semibold">
+      <div class="overflow-hidden p-6 mt-8 bg-white sm:rounded-lg shadow">
+        <h2 class="text-2xl font-semibold leading-7">
           Welcome to your Nuxt Application
         </h2>
         <p class="mt-3 text-gray-600">
@@ -59,18 +59,18 @@
           <a
             href="https://nuxtjs.org"
             target="_blank"
-            class="button--doc text-green-500 hover:underline"
+            class="text-green-500 hover:underline button--doc"
             >Nuxt documentation</a
           >, whether you are new or have previous experience with the
           framework.<br />
         </p>
-        <p class="mt-4 pt-4 text-gray-800 border-t border-dashed">
+        <p class="pt-4 mt-4 text-gray-800 border-t border-dashed">
           To get started, remove
-          <code class="bg-gray-100 text-sm p-1 rounded border"
+          <code class="p-1 text-sm bg-gray-100 rounded border"
             >components/Tutorial.vue</code
           >
           and start coding in
-          <code class="bg-gray-100 text-sm p-1 rounded border"
+          <code class="p-1 text-sm bg-gray-100 rounded border"
             >pages/index.vue</code
           >. Have fun!
         </p>
