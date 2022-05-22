@@ -2,7 +2,12 @@
   <section class="mt-5">
     <h1>Pending Transactions</h1>
     <div>
-      <b-table :data="data" :columns="columns"  />
+      <b-table
+        :data="data"
+        :columns="columns"
+        :default-sort="['id', 'asc']"
+        default-sort-direction="asc"
+      />
     </div>
   </section>
 </template>
@@ -18,7 +23,7 @@ export default {
           label: 'ID',
           width: '80',
           numeric: true,
-          sortable: false,
+          sortable: true,
         },
         {
           field: 'amount',

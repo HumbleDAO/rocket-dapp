@@ -5,10 +5,11 @@ import {
 
 let _contracts
 export default function (
-  { $web3, $web3Socket, $config: { ROCKET_FACTORY_CONTRACT } },
+  { $web3, $web3Socket, $config: { NETWORK_ID, ROCKET_FACTORY_CONTRACT } },
   inject
 ) {
   _contracts = _setupContracts($web3, $web3Socket, {
+    NETWORK_ID,
     ROCKET_FACTORY_CONTRACT,
   })
   inject('contracts', _contracts)
@@ -19,7 +20,7 @@ export const contracts = _contracts
 function _setupContracts(
   $web3,
   $web3Socket,
-  { ROCKET_FACTORY_CONTRACT, NETWORK_ID }
+  { NETWORK_ID, ROCKET_FACTORY_CONTRACT }
 ) {
   NETWORK_ID = String(NETWORK_ID)
   console.log('NETWORK_ID: ', NETWORK_ID)

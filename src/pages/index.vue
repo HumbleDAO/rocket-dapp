@@ -1,20 +1,18 @@
 <template>
   <div>
-    <navbar />
     <main>
       <header>
-        <pre class="moon">
+        <pre class="flex justify-center moon">
                                 *      .--.
                                       / /  `
                     +                | |
                             '         \ \__,
                         *          +   '--'  *
-            </pre
-        >
+        </pre>
         <div class="title">
           <h1>Rocket Protocol</h1>
         </div>
-        <pre class="rocket">
+        <pre class="flex justify-center rocket">
                    +   /\
     +                .'  '.   *
             *       /======\      +
@@ -28,23 +26,23 @@
                 |/    /||\    \|
             </pre
         >
-        <pre class="ground">
+        <pre class="flex justify-center ground">
               _..--"""````"""--.._
         _.-'``                    ``'-._
       -'                                '-
-            </pre
-        >
+        </pre>
       </header>
       <div class="title">
-        <p>
+        <p class="text-white">
           A decentralized protocol for Scheduling Token Transfers on the
           blockchain.
         </p>
-        <p><span>vvv</span> Get Started <span>vvv</span></p>
+        <p class="text-white"><span>vvv</span> Get Started <span>vvv</span></p>
       </div>
       <create-transaction />
       <total-scheduled-transactions />
       <pending-transactions />
+      <events />
     </main>
   </div>
 </template>
@@ -53,8 +51,8 @@
 import { mapMutations, mapState } from 'vuex'
 import TotalScheduledTransactions from '../components/TotalScheduledTransactions.vue'
 export default {
-  components: { TotalScheduledTransactions },
   name: 'App',
+  components: { TotalScheduledTransactions },
   computed: {
     ...mapState(['selectedAccount', 'chainId']),
   },
@@ -73,15 +71,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
-nav {
-  display: flex;
-  justify-content: flex-end;
-  background: #2e303b;
-  padding-top: 16px;
-  padding-right: 16px;
-  width: 100vw;
-  position: absolute;
-}
+
 main {
   display: grid;
   place-items: center;
@@ -92,13 +82,17 @@ main {
   padding: 3em 0;
 }
 .moon {
-  position: absolute;
-  top: -1px;
+  position: relative;
+  color: #ffffff;
 }
 .moon,
 .rocket,
 .ground {
+  background-color: #2e303b;
   font-size: 0.75em;
+}
+.ground {
+  color: rgb(252, 126, 126);
 }
 .rocket {
   color: rgb(255, 82, 82);
@@ -112,12 +106,8 @@ main {
   font-size: 2.5em;
   color: #ffffff;
 }
-.title > p {
-  margin-bottom: 0.5em;
-}
 p > span {
   color: rgb(252, 126, 126);
   font-weight: 600;
-  margin-top: 0.5em;
 }
 </style>

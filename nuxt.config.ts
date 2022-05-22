@@ -41,8 +41,12 @@ const networkData =
           // 80001
           chainId: '0x13881',
           chainName: 'Matic Mumbai Testnet',
-          rpcUrls: ['https://matic-mumbai.chainstacklabs.com/'],
-          socketRpcUrls: ['wss://ws-matic-mumbai.chainstacklabs.com'],
+          rpcUrls: [
+            'https://polygon-mumbai.g.alchemy.com/v2/QG4SdMfiIQGRz5W4unMEwerbvMXrTJfn',
+          ],
+          socketRpcUrls: [
+            'wss://polygon-mumbai.g.alchemy.com/v2/QG4SdMfiIQGRz5W4unMEwerbvMXrTJfn',
+          ],
           nativeCurrency: {
             name: 'Matic',
             symbol: 'MATIC',
@@ -51,12 +55,13 @@ const networkData =
           blockExplorerUrls: ['https://mumbai.polygonscan.com//'],
         },
       ]
-    : [
+    : DEPLOYED_NET_ENV === 'local'
+    ? [
         {
           // 1337
           chainId: '0x539',
           chainName: 'Truffle Development Local Net',
-          rpcUrls: ['https://127.0.0.1:9545'],
+          rpcUrls: ['HTTP://172.21.32.1:7545', 'HTTP://127.0.0.1:7545'],
           nativeCurrency: {
             name: 'Ethereum',
             symbol: 'ETH',
@@ -64,6 +69,7 @@ const networkData =
           },
         },
       ]
+    : [{}]
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -96,21 +102,25 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/web3.js', client: true },
-    { src: '~/plugins/contracts.js', client: true },
-    { src: '~/plugins/web3Modal.js', client: true },
+    // MAINTAINED ORDER START
+    { src: '~/plugins/web3Modal.js', mode: 'client' },
+    { src: '~/plugins/web3.js', mode: 'client' },
+    { src: '~/plugins/contracts.js', mode: 'client' },
+    // MAINTAINED ORDER END
+    // ...
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  build: {},
-  postcss: {
-    plugins: {
-      'postcss-custom-properties': false,
-      tailwindcss: path.resolve(__dirname, 'tailwind.config.js'),
-      'postcss-pxtorem': {
-        propList: ['*', '!border*'],
+  build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false,
+        tailwindcss: path.resolve(__dirname, 'tailwind.config.js'),
+        'postcss-pxtorem': {
+          propList: ['*', '!border*'],
+        },
       },
     },
   },

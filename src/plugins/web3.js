@@ -4,6 +4,8 @@ import Web3 from 'web3'
 export default function ({ $config: { networkData } }, inject) {
   try {
     const web3 = new Web3(networkData[0].rpcUrls[0])
+    console.log('INIT_WEB3: ', web3)
+
     const web3Socket = new Web3(
       new Web3.providers.WebsocketProvider(networkData[0].socketRpcUrls[0]),
       {
@@ -16,10 +18,10 @@ export default function ({ $config: { networkData } }, inject) {
         },
       }
     )
-    console.log('INIT_WEB3: ', web3)
-    console.log('INIT_WEB3_SOCKET: ', web3Socket)
+
     inject('web3', web3)
     inject('web3Socket', web3Socket)
+    console.log('INIT_WEB3_SOCKET: ', web3Socket)
   } catch (error) {
     console.warn(
       'web3 or web3socket initialization failed: ',
