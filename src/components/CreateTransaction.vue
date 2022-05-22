@@ -50,9 +50,9 @@
               name="ERC20Token"
               class="py-0 pr-7 pl-2 h-full bg-transparent border-transparent focus:border-indigo-500 focus:ring-indigo-500"
             >
-              <option>Polygon</option>
-              <option>Ethereum</option>
-              <option>Avalanche</option>
+              <option>USDC</option>
+              <option>CTAG</option>
+              <option>MATIC</option>
             </select>
             <!-- <input type="text" value="Ethereum ;" disabled> -->
           </div>
@@ -87,7 +87,7 @@
           <div>...<br /></div>
           <div>...<br /></div>
           <div class="form-field">
-            <button type="submit">
+            <button @click.prevent="createTransaction">
               transactionsList.<span class="function">push</span
               >(newTransaction);
             </button>
@@ -98,7 +98,21 @@
   </form>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    const tokenAddress = `example`
+  },
+
+  async mounted() {},
+
+  methods: {
+    createTransaction() {
+      console.log(`Creating a new transactions`)
+    },
+  },
+}
+</script>
 
 <style>
 .ide-container {
@@ -115,9 +129,9 @@
   transition: all 0.25s ease-in-out;
 }
 
-.ide:hover {
+/* .ide:hover {
   transform: scale(1.1);
-}
+} */
 
 .lines {
   display: flex;
