@@ -6,7 +6,7 @@
       :active="isLoading"
       :can-cancel="true"
     />
-    <section class="pb-4 main-content">
+    <section>
       <navbar />
       <nuxt />
     </section>
