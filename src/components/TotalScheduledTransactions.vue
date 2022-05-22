@@ -1,5 +1,5 @@
 <template>
-  <h1 class="mt-10">Total Transactions Scheduled: {{ totalTransactions }}</h1>
+  <h1>Total Transactions Scheduled: {{ totalTransactions }}</h1>
 </template>
 <script>
 export default {

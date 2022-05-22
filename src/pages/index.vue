@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main>
+    <main class="flex flex-col justify-center items-center">
       <header>
         <pre class="flex justify-center moon">
                                 *      .--.
@@ -32,15 +32,17 @@
       -'                                '-
         </pre>
       </header>
-      <div class="title">
+      <div class="pb-20 title">
         <p class="text-white">
           A decentralized protocol for Scheduling Token Transfers on the
           blockchain.
         </p>
         <p class="text-white">Get Started</p>
-        <p class="flex justify-center text-white"><liquid-button /></p>
+        <p class="flex justify-center text-white">
+          <liquid-button label="Docs" />
+        </p>
       </div>
-      <div class="flex flex-wrap justify-evenly w-4/5">
+      <div class="flex flex-wrap justify-evenly w-11/12">
         <create-transaction />
         <div>
           <total-scheduled-transactions />
@@ -78,13 +80,10 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
 
 main {
-  display: grid;
-  place-items: center;
   min-height: 100vh;
   background-color: #2e303b;
   color: rgb(255, 234, 175);
   font-family: 'Roboto Mono', monospace;
-  padding: 3em 0;
 }
 .moon {
   position: relative;

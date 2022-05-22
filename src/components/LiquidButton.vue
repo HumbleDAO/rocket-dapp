@@ -1,9 +1,19 @@
 <template>
   <a class="mt-4" href="#">
-    <span>Docs</span>
+    <span>{{ label }}</span>
     <div class="liquid" />
   </a>
 </template>
+<script>
+export default {
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+  },
+}
+</script>
 <style scoped>
 a {
   position: relative;

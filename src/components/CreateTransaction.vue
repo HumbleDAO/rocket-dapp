@@ -104,10 +104,13 @@
             />;
           </div>
           <div>) <span class="function">public</span> {</div>
-          <div>...<br /></div>
-          <div>...<br /></div>
+          <div class="ml-5 text-base text-gray-500">...<br /></div>
+          <div class="ml-5 text-base text-gray-500">//click to try!<br /></div>
           <div class="form-field">
-            <button @click.prevent="createTransaction">
+            <button
+              class="motion-reduce:animate-bounce"
+              @click.prevent="createTransaction"
+            >
               transactionsList.<span class="function">push</span
               >(newTransaction);
             </button>
