@@ -41,8 +41,12 @@ const networkData =
           // 80001
           chainId: '0x13881',
           chainName: 'Matic Mumbai Testnet',
-          rpcUrls: ['https://matic-mumbai.chainstacklabs.com/'],
-          socketRpcUrls: ['wss://ws-matic-mumbai.chainstacklabs.com'],
+          rpcUrls: [
+            'https://polygon-mumbai.g.alchemy.com/v2/QG4SdMfiIQGRz5W4unMEwerbvMXrTJfn',
+          ],
+          socketRpcUrls: [
+            'wss://polygon-mumbai.g.alchemy.com/v2/QG4SdMfiIQGRz5W4unMEwerbvMXrTJfn',
+          ],
           nativeCurrency: {
             name: 'Matic',
             symbol: 'MATIC',

@@ -5,10 +5,10 @@ import {
 
 let _contracts
 export default function (
-  { $web3, $config: { NETWORK_ID, ROCKET_FACTORY_CONTRACT } },
+  { $web3, $web3Socket, $config: { NETWORK_ID, ROCKET_FACTORY_CONTRACT } },
   inject
 ) {
-  _contracts = _setupContracts($web3, {
+  _contracts = _setupContracts($web3, $web3Socket, {
     NETWORK_ID,
     ROCKET_FACTORY_CONTRACT,
   })
@@ -19,7 +19,7 @@ export const contracts = _contracts
 
 function _setupContracts(
   $web3,
-  // $web3Socket,
+  $web3Socket,
   { NETWORK_ID, ROCKET_FACTORY_CONTRACT }
 ) {
   NETWORK_ID = String(NETWORK_ID)
@@ -34,17 +34,17 @@ function _setupContracts(
     : null
 
   // Instantiate wss providers
-  // const RocketFactorySocket = rocketFactoryAddress
-  //   ? new $web3Socket.eth.Contract(ROCKET_FACTORY_ABI, rocketFactoryAddress)
-  //   : null
+  const RocketFactorySocket = rocketFactoryAddress
+    ? new $web3Socket.eth.Contract(ROCKET_FACTORY_ABI, rocketFactoryAddress)
+    : null
 
   console.log({
     RocketFactory,
-    // RocketFactorySocket,
+    RocketFactorySocket,
   })
 
   return {
     RocketFactory,
-    // RocketFactorySocket,
+    RocketFactorySocket,
   }
 }
