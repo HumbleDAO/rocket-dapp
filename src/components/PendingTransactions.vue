@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-5">
+  <div class="">
     <h1>Pending Transactions</h1>
     <div>
       <b-table
@@ -9,7 +9,7 @@
         default-sort-direction="asc"
       />
     </div>
-  </section>
+  </div>
 </template>
 <script>
 export default {
