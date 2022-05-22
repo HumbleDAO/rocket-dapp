@@ -38,7 +38,11 @@
                 >&nbsp;=</span
               ></label
             >
-            <input type="text" placeholder="Enter receiver address_" />;
+            <input
+              v-model="recieverAddress"
+              type="text"
+              placeholder="Enter receiver address_"
+            />;
           </div>
           <div class="form-field">
             <label
@@ -47,12 +51,13 @@
             >
             <select
               id="ERC20Token"
+              v-model="selectedToken"
               name="ERC20Token"
               class="py-0 pr-7 pl-2 h-full bg-transparent border-transparent focus:border-indigo-500 focus:ring-indigo-500"
             >
-              <option>Polygon</option>
-              <option>Ethereum</option>
-              <option>Avalanche</option>
+              <option>USDC</option>
+              <option>CTAG</option>
+              <option>MATIC</option>
             </select>
             <!-- <input type="text" value="Ethereum ;" disabled> -->
           </div>
@@ -63,7 +68,11 @@
                 >&nbsp;=</span
               ></label
             >
-            <input type="number" placeholder="Amount to be Sent" />;
+            <input
+              v-model="amount"
+              type="number"
+              placeholder="Amount to be Sent"
+            />;
           </div>
           <div class="form-field">
             <label
@@ -72,7 +81,7 @@
                 >&nbsp;=</span
               ></label
             >
-            <input type="date" />;
+            <input type="date" v-model="deadline" />;
           </div>
           <div class="form-field">
             <label
@@ -81,13 +90,17 @@
                 >&nbsp;=</span
               ></label
             >
-            <input type="number" placeholder="Enter Tip Amount" />;
+            <input
+              v-model="tip"
+              type="number"
+              placeholder="Enter Tip Amount"
+            />;
           </div>
           <div>) <span class="function">public</span> {</div>
           <div>...<br /></div>
           <div>...<br /></div>
           <div class="form-field">
-            <button type="submit">
+            <button @click.prevent="createTransaction">
               transactionsList.<span class="function">push</span
               >(newTransaction);
             </button>
@@ -98,7 +111,46 @@
   </form>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      recieverAddress: '',
+      selectedToken: 'USDC',
+      amount: 0,
+      deadline: 0,
+      tip: 0,
+      // slectedToken: {
+      //   USDC: 0x12345,
+      //   CTAG: 0x12345,
+      //   MATIC: 0x12345,
+      // },
+    }
+  },
+
+  async mounted() {},
+
+  methods: {
+    createTransaction() {
+      console.log(
+        'reciever:',
+        this.recieverAddress,
+        '\ntoken address:',
+        this.selectedToken,
+        '\namount:',
+        this.amount,
+        '\ndeadline:',
+        this.deadline,
+        '\ntip',
+        this.tip
+      )
+    },
+    getUnixTime() {
+      return 'suh'
+    },
+  },
+}
+</script>
 
 <style>
 .ide-container {
@@ -115,9 +167,9 @@
   transition: all 0.25s ease-in-out;
 }
 
-.ide:hover {
+/* .ide:hover {
   transform: scale(1.1);
-}
+} */
 
 .lines {
   display: flex;

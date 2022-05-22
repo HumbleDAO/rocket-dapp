@@ -30,8 +30,7 @@
               _..--"""````"""--.._
         _.-'``                    ``'-._
       -'                                '-
-            </pre
-        >
+        </pre>
       </header>
       <div class="title">
         <p class="text-white">
@@ -41,14 +40,18 @@
         <p class="text-white"><span>vvv</span> Get Started <span>vvv</span></p>
       </div>
       <create-transaction />
+      <total-scheduled-transactions />
+      <pending-transactions />
     </main>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapState } from 'vuex'
+import TotalScheduledTransactions from '../components/TotalScheduledTransactions.vue'
 export default {
   name: 'App',
+  components: { TotalScheduledTransactions },
   computed: {
     ...mapState(['selectedAccount', 'chainId']),
   },
