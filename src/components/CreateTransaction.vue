@@ -126,7 +126,7 @@ import { mapState } from 'vuex'
 
 export default {
   components: { DatePick },
-  
+
   data() {
     return {
       recieverAddress: '',
@@ -142,7 +142,7 @@ export default {
     }
   },
   computed: {
-  ...mapState(['chainId', 'selectedAccount', 'selectedAccountEnsName']),
+    ...mapState(['chainId', 'selectedAccount', 'selectedAccountEnsName']),
   },
 
   async mounted() {},
@@ -154,7 +154,8 @@ export default {
       console.log(currentTime)
       // eslint-disable-next-line prettier/prettier
       const diff = differenceInSeconds(futureTime, currentTime)
-      return diff
+      return 60
+      // return diff
     },
     async createTransaction() {
       console.log(
@@ -175,7 +176,7 @@ export default {
         .createTransaction(
           this.recieverAddress,
           this.selectedToken,
-          this.amount,
+          this.$web3.utils.toWei(this.amount),
           this.getUnixTime(this.deadline),
           this.tip
         )

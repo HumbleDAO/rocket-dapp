@@ -37,7 +37,8 @@
           A decentralized protocol for Scheduling Token Transfers on the
           blockchain.
         </p>
-        <p class="text-white"><span>vvv</span> Get Started <span>vvv</span></p>
+        <p class="text-white">Get Started</p>
+        <p class="text-white flex justify-center"><liquid-button /></p>
       </div>
       <create-transaction />
       <total-scheduled-transactions />
