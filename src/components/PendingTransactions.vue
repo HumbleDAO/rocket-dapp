@@ -53,7 +53,7 @@ export default {
   methods: {
     parseData(array) {
       const newData = []
-      array.reverse().map((dataArray) => {
+      array.map((dataArray) => {
         newData.push({
           id: dataArray[0],
           sender: dataArray[1],
