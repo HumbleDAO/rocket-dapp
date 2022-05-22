@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "yarn contracts:build",
-    "dev": "cross-env DEPLOYED_NET_ENV=testnet nuxt",
-    "dev:local": "cross-env DEPLOYED_NET_ENV=local nuxt",
+    "dev": "cross-env DEPLOYED_NET_ENV=local nuxt",
     "dev:testnet": "cross-env DEPLOYED_NET_ENV=testnet nuxt",
     "dev:mainnet": "cross-env DEPLOYED_NET_ENV=mainnet nuxt",
     "build": "cross-env DEPLOYED_NET_ENV=mainnet nuxt build",
@@ -19,7 +18,8 @@
     "test": "jest",
     "contracts:test-development": "truffle test --network development",
     "contracts:build": "truffle compile --all",
-    "contracts:deploy-development": "truffle migrate --network development"
+    "contracts:deploy-development": "truffle migrate --network development",
+    "contracts:deploy-development-wsl": "truffle migrate --network development-wsl"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --cache",

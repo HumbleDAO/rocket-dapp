@@ -1,21 +1,21 @@
 import path from 'path'
 
 /* eslint-disable prefer-const */
-let { DEPLOYED_NET_ENV, NETWORK_ID, MIGRATIONS_CONTRACT } = process.env
+let { DEPLOYED_NET_ENV, NETWORK_ID, ROCKET_FACTORY_CONTRACT } = process.env
 
 if (DEPLOYED_NET_ENV === 'mainnet') {
   NETWORK_ID = '137'
-  MIGRATIONS_CONTRACT = ''
+  ROCKET_FACTORY_CONTRACT = ''
 }
 
 if (DEPLOYED_NET_ENV === 'testnet') {
   NETWORK_ID = '80001'
-  MIGRATIONS_CONTRACT = ''
+  ROCKET_FACTORY_CONTRACT = ''
 }
 
 if (DEPLOYED_NET_ENV === 'local') {
   NETWORK_ID = '5777' // ETH DEV `truffle development`
-  MIGRATIONS_CONTRACT = ''
+  ROCKET_FACTORY_CONTRACT = ''
 }
 
 const networkData =
@@ -95,12 +95,25 @@ export default {
   css: ['~/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/contracts.js', client: true },
+    { src: '~/plugins/web3.js', client: true },
+    { src: '~/plugins/web3Modal.js', client: true },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   build: {},
+  postcss: {
+    plugins: {
+      'postcss-custom-properties': false,
+      tailwindcss: path.resolve(__dirname, 'tailwind.config.js'),
+      'postcss-pxtorem': {
+        propList: ['*', '!border*'],
+      },
+    },
+  },
 
   buildModules: [
     '@nuxt/typescript-build',
@@ -119,7 +132,7 @@ export default {
   publicRuntimeConfig: {
     networkData,
     NETWORK_ID,
-    MIGRATIONS_CONTRACT,
+    ROCKET_FACTORY_CONTRACT,
   },
 
   tailwindcss: {

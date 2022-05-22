@@ -1,14 +1,6 @@
 <template>
   <div>
-    <nav>
-      <button
-        type="button"
-        class="py-2 px-4 text-sm font-medium text-white bg-black bg-opacity-25 hover:bg-opacity-90 rounded-md focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:outline-none"
-        @click="openModal"
-      >
-        Connect your Wallet
-      </button>
-    </nav>
+    <navbar />
     <main>
       <header>
         <pre class="moon">
@@ -55,7 +47,25 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import { mapMutations, mapState } from 'vuex'
+export default {
+  name: 'App',
+  computed: {
+    ...mapState(['selectedAccount', 'chainId']),
+  },
+  async mounted() {
+    if (!this.selectedAccount && this.$web3Modal.cachedProvider) {
+      this.setLoadingStatus(true)
+      await this.$store.dispatch('connectToWallet')
+      this.setLoadingStatus(false)
+    }
+  },
+  methods: {
+    ...mapMutations(['setLoadingStatus']),
+  },
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');

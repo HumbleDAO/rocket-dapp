@@ -11,7 +11,7 @@ module.exports = {
       gas: parseInt(process.env.ETH_DEV_RPC_GAS, 10) || 6721975, // required for deploy, otherwise it throws weird require-errors on constructor
     },
     'development-wsl': {
-      host: process.env.ETH_DEV_RPC_HOST || '172.23.224.1', // Localhost (default: none)
+      host: process.env.ETH_DEV_RPC_HOST || '172.21.32.1', // Localhost (default: none)
       port: process.env.ETH_DEV_RPC_PORT || 7545, // Standard Ethereum port (default: none)
       network_id: process.env.ETH_DEV_RPC_NETWORK_ID || 5777, // Any network (default: none)
       gas: parseInt(process.env.ETH_DEV_RPC_GAS, 10) || 6721975, // required for deploy, otherwise it throws weird require-errors on constructor
