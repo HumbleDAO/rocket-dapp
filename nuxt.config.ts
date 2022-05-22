@@ -62,6 +62,7 @@ const networkData =
           chainId: '0x539',
           chainName: 'Truffle Development Local Net',
           rpcUrls: ['HTTP://172.21.32.1:7545', 'HTTP://127.0.0.1:7545'],
+          socketRpcUrls: ['ws://172.21.32.1:7545', 'ws://127.0.0.1:7545'],
           nativeCurrency: {
             name: 'Ethereum',
             symbol: 'ETH',
