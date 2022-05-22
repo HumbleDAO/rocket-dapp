@@ -44,6 +44,7 @@
       </div>
       <create-transaction />
       <total-scheduled-transactions />
+      <pending-transactions />
     </main>
   </div>
 </template>
