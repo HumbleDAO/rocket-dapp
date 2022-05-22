@@ -1,5 +1,5 @@
 <template>
-  <b-navbar transparent :mobile-burger="true" :close-on-click="false">
+  <b-navbar :mobile-burger="true" :close-on-click="false">
     <template #brand>
       <a href="#">
         <b-navbar-item class="brand" />
@@ -21,10 +21,8 @@
     </template>
     <template #end>
       <b-navbar-item tag="div" class="actions">
-        <balance v-if="selectedAccount" />
         <button
-          v-if="!$config.IS_CONNECTING_DISABLED"
-          class="mx-4 text-white underline address"
+          class="mx-4 underline address"
           @click="
             selectedAccount
               ? copyAddressToClipboard(selectedAccount)
@@ -100,3 +98,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+* >>> .navbar {
+  background-color: #2e303b !important;
+}
+</style>

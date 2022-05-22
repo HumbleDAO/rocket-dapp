@@ -96,21 +96,25 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/web3.js', client: true },
-    { src: '~/plugins/contracts.js', client: true },
-    { src: '~/plugins/web3Modal.js', client: true },
+    // MAINTAINED ORDER START
+    { src: '~/plugins/web3Modal.js', mode: 'client' },
+    { src: '~/plugins/web3.js', mode: 'client' },
+    { src: '~/plugins/contracts.js', mode: 'client' },
+    // MAINTAINED ORDER END
+    // ...
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  build: {},
-  postcss: {
-    plugins: {
-      'postcss-custom-properties': false,
-      tailwindcss: path.resolve(__dirname, 'tailwind.config.js'),
-      'postcss-pxtorem': {
-        propList: ['*', '!border*'],
+  build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false,
+        tailwindcss: path.resolve(__dirname, 'tailwind.config.js'),
+        'postcss-pxtorem': {
+          propList: ['*', '!border*'],
+        },
       },
     },
   },
