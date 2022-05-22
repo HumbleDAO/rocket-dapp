@@ -113,7 +113,7 @@ export const actions: ActionTree<RootState, RootState> = {
         provider
       )
     }
-    provider.on('close', () => commit('resetState'))
+    provider.on('disconnect', () => commit('resetState'))
     provider.on('accountsChanged', async (accounts: string[]) => {
       if (accounts[0]) {
         commit('setSelectedAccount', accounts[0])

@@ -51,12 +51,13 @@ const networkData =
           blockExplorerUrls: ['https://mumbai.polygonscan.com//'],
         },
       ]
-    : [
+    : DEPLOYED_NET_ENV === 'local'
+    ? [
         {
           // 1337
           chainId: '0x539',
           chainName: 'Truffle Development Local Net',
-          rpcUrls: ['https://127.0.0.1:9545'],
+          rpcUrls: ['HTTP://172.21.32.1:7545', 'HTTP://127.0.0.1:7545'],
           nativeCurrency: {
             name: 'Ethereum',
             symbol: 'ETH',
@@ -64,6 +65,7 @@ const networkData =
           },
         },
       ]
+    : [{}]
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
