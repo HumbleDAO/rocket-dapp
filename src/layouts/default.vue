@@ -31,21 +31,7 @@ export default {
   computed: {
     ...mapState(['selectedAccount', 'chainId', 'isLoading']),
   },
-  mounted() {
-    if (
-      this.$route.query.ref &&
-      this.$web3.utils.isAddress(this.$route.query.ref)
-    ) {
-      console.log('REF on mount', this.$route.query.ref)
-      this.$store.commit('account/SET_ACCOUNT', { ref: this.$route.query.ref })
-      localStorage.setItem('referral', this.$route.query.ref)
-    }
-    if (this.$web3.utils.isAddress(localStorage.getItem('referral'))) {
-      this.$store.commit('account/SET_ACCOUNT', {
-        ref: localStorage.getItem('referral'),
-      })
-    }
-  },
+  mounted() {},
   beforeDestroy() {
     if (
       this.$web3.currentProvider &&
