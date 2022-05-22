@@ -51,6 +51,7 @@
     "nuxt-buefy": "^0.4.23",
     "truffle-flatten": "^1.0.8",
     "vue": "^2.6.14",
+    "vue-date-pick": "^1.4.1",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "web3": "^1.6.1",

@@ -81,7 +81,14 @@
                 >&nbsp;=</span
               ></label
             >
-            <input type="date" v-model="deadline" />;
+            <date-pick
+              v-model="deadline"
+              :pick-time="false"
+              :use12-hour-clock="true"
+              :format="'YYYY-MM-DD HH:mm'"
+              :display-format="'YYYY.MM.DD H:mm A'"
+              type="date"
+            />;
           </div>
           <div class="form-field">
             <label
@@ -112,13 +119,20 @@
 </template>
 
 <script>
+import DatePick from 'vue-date-pick'
+import 'vue-date-pick/dist/vueDatePick.css'
+import { differenceInSeconds } from 'date-fns'
+import { mapState } from 'vuex'
+
 export default {
+  components: { DatePick },
+  
   data() {
     return {
       recieverAddress: '',
-      selectedToken: 'USDC',
+      selectedToken: '0xc69F4eF2138764A52e7dd7Ec2931d1CdD7B32d0f',
       amount: 0,
-      deadline: 0,
+      deadline: '2022.04.20 04:20 PM',
       tip: 0,
       // slectedToken: {
       //   USDC: 0x12345,
@@ -127,11 +141,22 @@ export default {
       // },
     }
   },
+  computed: {
+  ...mapState(['chainId', 'selectedAccount', 'selectedAccountEnsName']),
+  },
 
   async mounted() {},
 
   methods: {
-    createTransaction() {
+    getUnixTime(date) {
+      const futureTime = Date.parse(date)
+      const currentTime = new Date()
+      console.log(currentTime)
+      // eslint-disable-next-line prettier/prettier
+      const diff = differenceInSeconds(futureTime, currentTime)
+      return diff
+    },
+    async createTransaction() {
       console.log(
         'reciever:',
         this.recieverAddress,
@@ -140,13 +165,21 @@ export default {
         '\namount:',
         this.amount,
         '\ndeadline:',
-        this.deadline,
+        this.getUnixTime(this.deadline),
         '\ntip',
         this.tip
       )
-    },
-    getUnixTime() {
-      return 'suh'
+      console.log(this.$contracts.RocketFactory)
+
+      this.totalTransactions = await this.$contracts.RocketFactory.methods
+        .createTransaction(
+          this.recieverAddress,
+          this.selectedToken,
+          this.amount,
+          this.getUnixTime(this.deadline),
+          this.tip
+        )
+        .send({ from: this.selectedAccount })
     },
   },
 }
