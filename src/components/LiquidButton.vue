@@ -1,10 +1,10 @@
 <template>
   <a class="mt-4" href="#">
     <span>Docs</span>
-    <div class="liquid"></div>
+    <div class="liquid" />
   </a>
 </template>
-<style>
+<style scoped>
 a {
   position: relative;
   padding: 10px 25px;

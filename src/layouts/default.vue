@@ -6,10 +6,8 @@
       :active="isLoading"
       :can-cancel="true"
     />
-    <section>
-      <navbar />
-      <nuxt />
-    </section>
+    <navbar />
+    <nuxt />
   </div>
 </template>
 

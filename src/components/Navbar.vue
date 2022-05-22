@@ -12,7 +12,7 @@
         :inverted="disabled"
         :active="$route.path === to"
         :class="{ disabled }"
-        class="text-base"
+        class="text-white"
         tag="nuxt-link"
         :to="disabled ? '' : to"
       >
@@ -106,8 +106,19 @@ export default {
 }
 </script>
 
-<style scoped>
-* >>> .navbar {
-  background-color: #2e303b !important;
+<style lang="scss" scoped>
+a.navbar-item,
+.navbar-link {
+  @apply text-white bg-transparent;
+  &:hover {
+    @apply text-yellow-400;
+  }
+
+  &.is-active {
+    @apply text-yellow-400;
+    &:hover {
+      @apply text-white;
+    }
+  }
 }
 </style>
