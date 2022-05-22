@@ -38,11 +38,15 @@
           blockchain.
         </p>
         <p class="text-white">Get Started</p>
-        <p class="text-white flex justify-center"><liquid-button /></p>
+        <p class="flex justify-center text-white"><liquid-button /></p>
       </div>
-      <create-transaction />
-      <total-scheduled-transactions />
-      <pending-transactions />
+      <div class="flex flex-wrap justify-evenly w-4/5">
+        <create-transaction />
+        <div>
+          <total-scheduled-transactions />
+          <pending-transactions />
+        </div>
+      </div>
       <events />
     </main>
   </div>

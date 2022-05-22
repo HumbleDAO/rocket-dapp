@@ -262,4 +262,8 @@ export default {
   text-decoration: underline;
   transform: scale(1.1);
 }
+
+.vdpComponent.vdpWithInput input {
+  @apply text-lg;
+}
 </style>
