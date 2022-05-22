@@ -31,6 +31,13 @@
         >
           <div class="text-2xl underline">{{ cBtnLabel }}</div>
         </button>
+        <button
+          v-if="selectedAccount"
+          class="mx-4 underline address"
+          @click="$store.dispatch('disconnectWallet')"
+        >
+          <div class="text-2xl underline">Disconnect</div>
+        </button>
       </b-navbar-item>
     </template>
   </b-navbar>
